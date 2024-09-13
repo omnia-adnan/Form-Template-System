@@ -47,7 +47,7 @@ input {
 .card-heading {
 	position: absolute;
 	left: 10%;
-	top: 15%;
+	top: 10%;
 	right: 10%;
 	font-size: 1.75rem;
 	font-weight: 700;
@@ -101,6 +101,10 @@ input {
 
 .action {
 	margin-top: 2rem;
+}
+
+.link {
+	color: white;
 }
 
 .action-button {
