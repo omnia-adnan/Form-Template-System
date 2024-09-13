@@ -10,8 +10,12 @@ function Form() {
 
     const change = (e) => {
         setStuff({ ...stuff, [e.target.name]: e.target.value });
-        localStorage.setItem('stuffs', stuff.stuffName)
+        localStorage.setItem('stuffs', stuff)
     };
+
+    const handleSaveData = () => {
+        localStorage.setItem('stuffs', JSON.stringify(stuff))
+    }
 
     return (
         <>
@@ -60,7 +64,7 @@ function Form() {
                             <option value="poor">poor</option>
                         </select>
                     </div>
-                    <div className="action">
+                    <div className="action" onClick={handleSaveData}>
                         <Link to="/Table" state={stuff} className='link'>
                             <button className="action-button">Get started</button>
                         </Link>
