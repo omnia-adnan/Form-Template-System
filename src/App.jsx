@@ -11,7 +11,7 @@ function App() {
     <BrowserRouter>
     <Navbar/>
     <Routes>
-      <Route path='/Form' element={<Form/>}/>
+      <Route path='/' element={<Form/>}/>
       <Route path='/Table' element={<Table/>}/>
     </Routes>
     </BrowserRouter>
