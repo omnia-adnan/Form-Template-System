@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './Form.css';
-
+import { CiSquarePlus } from "react-icons/ci";
 
 function Form() {
     const [formContent, setFormContent] = useState([]);
@@ -59,7 +59,8 @@ function Form() {
             <div className='questions'>
                 {formContent.map((field) => {
                     return(
-                        <div className='question_type'>
+                        <div key={field.id} className='question_type'>
+                            <div>
                             <div className='question_choice'>
                                 <div key={field.name} className='question_titel'>
                                     {
@@ -97,17 +98,20 @@ function Form() {
                                     </div>
                                 }
                             </div>
+                            </div>
                         </div>
                     )
                 })}
-            </div>
                 <div className='button'>
                     <div>
-                        <button type="button" onClick={addQuestion}>Add Question</button>
+                        <button onClick={addQuestion}>
+                            <CiSquarePlus className='plus'/>
+                        </button>
                     </div>
                 </div>
             </div>
-            {/* <div className='title'>
+            </div>
+            <div className='title'>
                 <h1>Form Mark Preview</h1>
                 <h2>Untitled Form</h2>
             </div>
@@ -117,8 +121,8 @@ function Form() {
                     return(
                         <div className='question_type'>
                             <div className='question_choice'>
-                                <div key={field.name}>
-                                        <label onClick={() => setOnEdit(true)}>{field.label}</label>
+                            <div key={field.name} className='question_titel'>
+                            <label onClick={() => setOnEdit(true)}>{field.label}</label>
                                 </div>
                             </div>
                             <div className='choice_type'>
@@ -138,7 +142,7 @@ function Form() {
                         </div>
                     )
                 })}
-            </div> */}
+            </div>
         </div>
     );
 }
