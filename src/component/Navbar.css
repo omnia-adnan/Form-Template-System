@@ -1,14 +1,13 @@
 nav {
-	width: 100%;
+	width:calc(100% + 20px) ;
 	margin: auto;
     padding: .5px;
-	margin-bottom: 3rem;
+	margin-bottom: 5px;
 	background-color: #6658d3;
 }
 
 nav ul li {
 	list-style-type: none;
-	margin: 0 10px;
 	font-size: 22px;
 }
 
