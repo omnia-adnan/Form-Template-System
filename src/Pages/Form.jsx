@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import './Form.css';
 
 function Form() {
     const [stuff, setStuff] = useState({
@@ -9,21 +10,24 @@ function Form() {
     });
 
     const change = (e) => {
-        setStuff({ ...stuff, [e.target.name]: e.target.value });
-        localStorage.setItem('stuffs', stuff)
+        const { name, value } = e.target;
+        setStuff((prevState) => ({
+            ...prevState,
+            [name]: value,
+        }));
     };
 
     const handleSaveData = () => {
-        localStorage.setItem('stuffs', JSON.stringify(stuff))
-    }
+        localStorage.setItem('stuffs', JSON.stringify(stuff));
+    };
 
     return (
-        <>
+        <div className='contenar'>
             <div className="card">
                 <div className="card-image">	
                     <h2 className="card-heading">
                         Get started
-                        <small>Let us your Rate for stuff</small>
+                        <small>Let us know your rate for stuff</small>
                     </h2>
                 </div>
                 <form className="card-form">
@@ -58,10 +62,10 @@ function Form() {
                             required
                         >
                             <option value="">Condition</option> 
-                            <option value="excellent">excellent</option>
-                            <option value="good">good</option>
-                            <option value="fair">fair</option>
-                            <option value="poor">poor</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                            <option value="poor">Poor</option>
                         </select>
                     </div>
                     <div className="action" onClick={handleSaveData}>
@@ -71,7 +75,7 @@ function Form() {
                     </div>
                 </form>
             </div>
-        </>
+        </div>
     );
 }
 

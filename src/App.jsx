@@ -1,7 +1,5 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import './App.css';
-import Form from './component/Form';
-import Table from './component/Table';
+import Form from './Pages/Form';
 import Navbar from './component/Navbar';
 
 
@@ -9,11 +7,10 @@ function App() {
   
   return (
     <BrowserRouter>
-    <Navbar/>
-    <Routes>
-      <Route path='/' element={<Form/>}/>
-      <Route path='/Table' element={<Table/>}/>
-    </Routes>
+      <Navbar/>
+        <Routes>
+            <Route path='/' element={<Form/>}/>
+        </Routes>
     </BrowserRouter>
   );
 }

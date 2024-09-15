@@ -1,0 +1,22 @@
+nav {
+	width: 100%;
+	margin: auto;
+    padding: .5px;
+	margin-bottom: 3rem;
+	background-color: #6658d3;
+}
+
+nav ul li {
+	list-style-type: none;
+	margin: 0 10px;
+	font-size: 22px;
+}
+
+li a {
+	text-decoration: none;
+	color: white;
+}
+
+li a:hover {
+	color: #5500ff;
+}	

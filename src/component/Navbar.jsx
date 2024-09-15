@@ -1,16 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../App.css';
+import './Navbar.css';
 
 const Navbar = () => {
     return (
         <nav>
             <ul>
                 <li>
-                    <Link to="/Form">Adding Stuffs</Link>
-                </li>
-                <li>
-                    <Link to="/Table">Table Stuffs</Link>
+                    <Link to="/">Template</Link>
                 </li>
             </ul>
         </nav>
