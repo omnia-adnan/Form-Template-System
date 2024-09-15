@@ -63,6 +63,42 @@
 	width: 100%;
 }
 
+.selected{
+	margin: 1rem 0;
+	display: flex;
+	flex-direction: column;
+	margin-top: 0.5rem; 
+}
+
+.selected select{
+	padding: 0 20px;
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	height: 2.5rem;
+	border-radius: 6px;
+	display: block;
+	width: 100%;
+}
+
+.selected div{
+	display: flex;
+	justify-content: space-between;
+}
+
+.selected input{
+	flex: 1 1 0%;
+}
+
+.selected button{
+	background: #6658d3;
+	color: white;
+	padding: 0 1rem;
+	display: block;
+}
+
+.selected button:hover{
+	background: #5143b9;
+}
+
 .button{
 	position: relative;
 	width: 100%;
@@ -86,4 +122,8 @@
 	font-size: small;
 	color: white;
 	border-radius: 6px;
+}
+
+.button div button:hover{
+	background: #5143b9;
 }
