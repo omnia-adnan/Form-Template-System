@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import { useState } from 'react';
 import './Form.css';
 import { CiSquarePlus } from "react-icons/ci";
@@ -7,6 +8,13 @@ function Form() {
     const [onEdit, setOnEdit] = useState(false);
     const [textField, setTextField] = useState('');
     const [editedField, setEditedField] = useState('');
+
+    const camelize = (str) => {
+        return str.replace(/(?:^\|[A-Z]|\b\w|\s+)/g, function (match, index) {
+            if (+match === 0) return "";
+            return index === 0 ? match.toLowerCase() : match.toUpperCase();
+        });
+    };
 
     const addQuestion = () => {
         const field ={
@@ -47,6 +55,20 @@ function Form() {
             }
             
         }
+    }
+
+    const submitForm = (e) => {
+        e.preventDefault();
+        const formTargets = e.target;
+        let data = [];
+        formContent.map(content => {
+            const element = camelize(content.label)
+            data.push({
+                question: content.label,
+                answer: formTargets[element].value,
+            })
+            console.log('form data', data);
+        })
     }
 
     return (
@@ -116,7 +138,7 @@ function Form() {
                 <h2>Untitled Form</h2>
             </div>
             
-            <div className='questions'>
+            <form onSubmit={submitForm} className='questions'>
                 {formContent.map((field) => {
                     return(
                         <div className='question_type'>
@@ -127,14 +149,14 @@ function Form() {
                             </div>
                             <div className='choice_type'>
                                 {
-                                    field.question_type === 'showt_answer' && <input type="text" placeholder={field.label} />
+                                    field.question_type === 'showt_answer' && <input type="text" placeholder={field.label} name={camelize(field.label)}/>
                                 }
                                 {
-                                    field.question_type === 'paregraph' && <textarea rows={4} placeholder={field.label} />
+                                    field.question_type === 'paregraph' && <textarea rows={4} placeholder={field.label} name={camelize(field.label)}/>
                                 }
                                 {
                                     field.question_type === 'multichoice' && 
-                                        <select>
+                                        <select name={camelize(field.label)}>
                                             {field.list.map((item) => <option key={item} value={item}>{item}</option>)}
                                         </select>
                                 }
@@ -142,7 +164,15 @@ function Form() {
                         </div>
                     )
                 })}
-            </div>
+                
+                <div>
+                    <div>
+                        <button type='submit' className='submit'>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </form>
         </div>
     );
 }
