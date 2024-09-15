@@ -40,7 +40,7 @@ function Form() {
         const formFields = [...formContent];
         const fieldIndex = formFields.findIndex(f => f.name === fieldName);
         if (fieldIndex > -1) {
-            if (option && option != "") {
+            if (option && option !== "") {
                 formFields[fieldIndex].list.push(option);
                 setFormContent(formFields);
                 setTextField('');
@@ -55,12 +55,13 @@ function Form() {
                 <h1>Form Header</h1>
                 <h2>Form description</h2>
             </div>
+            <div>
             <div className='questions'>
                 {formContent.map((field) => {
                     return(
                         <div className='question_type'>
                             <div className='question_choice'>
-                                <div key={field.name}>
+                                <div key={field.name} className='question_titel'>
                                     {
                                         onEdit && (editedField === field.name) ?
                                         <input type="text" value={field.label} onChange={(e) => editField(field.name, e.target.value)} onBlur={() => {setOnEdit(false); setEditedField("")}}/>
@@ -85,13 +86,13 @@ function Form() {
                                 }
                                 {
                                     field.question_type === 'multichoice' && 
-                                    <div className='selectedy'>
+                                    <div className='selected'>
                                         <select>
                                             {field.list.map((item) => <option key={item} value={item}>{item}</option>)}
                                         </select>
                                         <div>
                                             <input type="text" onChange={(e) => setTextField(e.target.value)} value={textField} placeholder='Add option' />
-                                            <button type="button" onClick={() => addFieldOption(field.name, textField)}>Add</button>
+                                            <button type="button" onClick={() => addFieldOption(field.name, textField)} className='add'>Add</button>
                                         </div>
                                     </div>
                                 }
@@ -99,13 +100,14 @@ function Form() {
                         </div>
                     )
                 })}
+            </div>
                 <div className='button'>
                     <div>
                         <button type="button" onClick={addQuestion}>Add Question</button>
                     </div>
                 </div>
             </div>
-            <div className='title'>
+            {/* <div className='title'>
                 <h1>Form Mark Preview</h1>
                 <h2>Untitled Form</h2>
             </div>
@@ -136,7 +138,7 @@ function Form() {
                         </div>
                     )
                 })}
-            </div>
+            </div> */}
         </div>
     );
 }
