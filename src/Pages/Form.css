@@ -1,8 +1,7 @@
 .container{
 	width: 100%;
 	height: 100vh;
-	margin-left: auto;
-	margin-right: auto;
+	margin: 0 auto;
 	padding: 0 1rem;
 }
 
@@ -10,9 +9,7 @@
 	display: flex;
 	flex-direction: column;
 	width: 100%;
-	margin-top: .5rem;
-	margin-left: 1rem;
-	margin-right: 1rem;
+	margin: .5rem 1rem 0 1rem;
 }
 
 @media only screen and (max-width: 600px) {
@@ -25,6 +22,9 @@
 		font-size: 1.125rem;
 		line-height: 1.75rem;
 	}
+	.questions{
+		margin: 0 2.5rem;
+	}
 }
 
 .questions{
@@ -32,8 +32,35 @@
 	box-shadow: 0 10px 15px -3px rgb(0, 0, 0, .1), 0 4px 6px -4px rgb(0, 0, 0, .1) ;
 	border-radius: 6px;
 	padding: 20px;
-	margin-left: 2.5rem;
-	margin-right: 2.5rem;
+	margin: 0 1rem;
+}
+
+.question_type{
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+	margin: .5rem 0;
+}
+
+.question_choice{
+	/* display: flex; */
+	font-size: small;
+	font-weight: 500;
+	color: blueviolet;
+	text-transform: capitalize;
+}
+
+.choice_type{
+	margin: 1rem 0;
+}
+
+.choice_type input, textarea, select{
+	padding: 0 20px;
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+	height: 2rem;
+	border-radius: 6px;
+	display: block;
+	width: 100%;
 }
 
 .button{
@@ -55,7 +82,8 @@
 	display: inline-flex;
 	background: #6658d3;
 	align-items: center;
-	font-size: smaller;
+	padding: 12px;
+	font-size: small;
 	color: white;
 	border-radius: 6px;
 }
